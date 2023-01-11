@@ -1,4 +1,4 @@
-<div class="playground-container">
+<div class="playground-container" *ngIf="(workflow$ | async) as workflow">
   <h3>{{workflow?.name}}</h3>
 
   <app-steps-list [workflow]="workflow"></app-steps-list>
@@ -10,14 +10,14 @@
 
 <mat-menu #itemTypes="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="triggerElements">Déclencheur</button>
-  <button mat-menu-item>Tâche</button>
+  <button mat-menu-item (click)="addWorkflowElement(workflowStepType.Task)">Tâche</button>
   <button mat-menu-item [matMenuTriggerFor]="operatorElements">Opérateur</button>
 </mat-menu>
 
 <mat-menu #triggerElements="matMenu">
-  <button mat-menu-item>Webhook</button>
+  <button mat-menu-item (click)="addWorkflowElement(workflowStepType.Trigger, 'Webhook')">Webhook</button>
 </mat-menu>
 
 <mat-menu #operatorElements="matMenu">
-  <button mat-menu-item>Choix</button>
+  <button mat-menu-item (click)="addWorkflowElement(workflowStepType.Operator, 'Choix')">Choix</button>
 </mat-menu>

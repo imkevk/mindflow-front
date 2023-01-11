@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Ajout d'un élément</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Titre</mat-label>
+      <input formControlName="title" matInput placeholder="Titre">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input formControlName="subtitle" matInput placeholder="Description">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Etape précédente</mat-label>
+      <mat-select formControlName="previousStep">
+        <mat-option *ngFor="let step of data.steps" [value]="step.id">{{step.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button mat-button [mat-dialog-close]="form.value" [disabled]="!form.valid" cdkFocusInitial>Ajouter</button>
+</mat-dialog-actions>

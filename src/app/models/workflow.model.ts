@@ -12,7 +12,7 @@ export interface WorkflowStep {
   nextStep: number[];
 }
 
-export const enum WorkflowStepType {
+export enum WorkflowStepType {
   Trigger = 'trigger',
   Operator = 'operator',
   Task = 'task'

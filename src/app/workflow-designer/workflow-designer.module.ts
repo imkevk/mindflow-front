@@ -5,13 +5,15 @@ import { PlaygroundComponent } from './components/playground/playground.componen
 import { IncludedInMultipleStepsPipe } from './pipes/included-in-multiple-steps.pipe';
 import { WorkflowDesignerRoutingModule } from './workflow-designer-routing.module';
 import { StepsListComponent } from './components/steps-list/steps-list.component';
+import { AddElementDialogComponent } from './components/add-element-dialog/add-element-dialog.component';
 
 
 @NgModule({
   declarations: [
     PlaygroundComponent,
     IncludedInMultipleStepsPipe,
-    StepsListComponent
+    StepsListComponent,
+    AddElementDialogComponent
   ],
   imports: [
     CommonModule,
