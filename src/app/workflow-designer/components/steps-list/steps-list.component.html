@@ -1,0 +1,25 @@
+<div *ngIf="workflow" class="steps-list">
+  <ng-container *ngFor="let step of workflow.steps">
+    <ng-container *ngIf="!(step.id | includedInMultipleSteps:workflow)">
+      <ng-container [ngTemplateOutlet]="step.nextStep.length > 1 ? multipleSteps : simpleStep"
+        [ngTemplateOutletContext]="{step:step}">
+      </ng-container>
+      <ng-template #multipleSteps let-step='step'>
+        <div class="multiple-steps">
+          <ng-container [ngTemplateOutlet]="simpleStep" [ngTemplateOutletContext]="{step:step}"></ng-container>
+          <h5>Prochaines étapes possibles</h5>
+          <div class="multiple-steps-available" *ngFor="let stepId of step.nextStep">
+            <ng-container [ngTemplateOutlet]="simpleStep" [ngTemplateOutletContext]="{step:getStepById(stepId)}">
+            </ng-container>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #simpleStep let-step='step'>
+        <div class="step" [ngClass]="step.type">
+          <span class="stept-tile">{{step.title}}</span>
+          <span class="step-subtitle" *ngIf="step.subtitle">{{step.subtitle}}</span>
+        </div>
+      </ng-template>
+    </ng-container>
+  </ng-container>
+</div>

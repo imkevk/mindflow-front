@@ -1,0 +1,53 @@
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+
+  &-title {
+    font-size: 14px;
+  }
+
+  &-subtitle {
+    font-size: 12px;
+    color: #8d8989;
+  }
+}
+
+.task {
+
+  border: 1px solid blue;
+}
+
+.operator {
+  border: 1px solid orange;
+}
+
+.trigger {
+  border: 1px solid red;
+}
+
+.multiple-steps {
+  background-color: beige;
+  border-radius: 8px;
+  padding: 16px;
+
+  >:first-child {
+    margin-bottom: 16px;
+  }
+
+  h5 {
+    font-weight: bold;
+  }
+
+  &-available {
+    margin-bottom: 8px;
+  }
+}

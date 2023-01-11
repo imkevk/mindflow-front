@@ -1,3 +1,23 @@
 <div class="playground-container">
-  
+  <h3>{{workflow.name}}</h3>
+
+  <app-steps-list [workflow]="workflow"></app-steps-list>
 </div>
+
+<button class="add-button" mat-fab color="primary" [matMenuTriggerFor]="itemTypes">
+  <mat-icon>add</mat-icon>
+</button>
+
+<mat-menu #itemTypes="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="triggerElements">Déclencheur</button>
+  <button mat-menu-item>Tâche</button>
+  <button mat-menu-item [matMenuTriggerFor]="operatorElements">Opérateur</button>
+</mat-menu>
+
+<mat-menu #triggerElements="matMenu">
+  <button mat-menu-item>Webhook</button>
+</mat-menu>
+
+<mat-menu #operatorElements="matMenu">
+  <button mat-menu-item>Choix</button>
+</mat-menu>

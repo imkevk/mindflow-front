@@ -1,0 +1,51 @@
+{
+  "id": 1,
+  "name": "Mon Workflow 1",
+  "steps": [
+    {
+      "id": 1,
+      "title": "Webhook",
+      "subtitle": "Faire qqch",
+      "type": "trigger",
+      "nextStep": [
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Mon Step 2",
+      "subtitle": "Faire autre chose",
+      "type": "task",
+      "nextStep": [
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Choix",
+      "type": "operator",
+      "nextStep": [
+        4,
+        5
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Mon Step 4",
+      "subtitle": "Faire autre chose",
+      "type": "task",
+      "nextStep": [
+        6
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Mon Step 5",
+      "subtitle": "Faire autre chose",
+      "type": "task",
+      "nextStep": [
+        6
+      ]
+    }
+  ]
+}
